@@ -10,8 +10,8 @@ class UserItem:
 
     def __init__(self, id: int, surname: str, name: str, phone: str, description: str = '') -> None:
         self.__id = id
-        self.name = self.__normalize(name)
-        self.surname = self.__normalize(surname)
+        self.name = self.__normalize(name).capitalize()
+        self.surname = self.__normalize(surname).capitalize()
         self.phone = self.__normalize(phone)
         self.description = self.__normalize(description)
 
@@ -94,10 +94,11 @@ def get_user_by_id(__id: int) -> UserItem | None:
         if __id == person.get_id():
             return person
 
-    return None
+    return
 
 def output_phone_book(phone_book: list) -> None:
     ''' Вывод справочника'''
+    
     print(*phone_book, sep='\n')    
 
 
